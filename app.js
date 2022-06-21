@@ -78,10 +78,14 @@ app.post('/interactions', async function (req, res) {
     if (name === 'verify-wallet') {
       const userId = req.body.member.user.id;
       return res.send({
-        type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
-        data: {
-          content: `${process.env.VERIFY_BASE_URL}?user=${userId}`,
-        },
+        type: 2,
+        style: 5,
+        label: "Let's go.",
+        url: `${process.env.VERIFY_BASE_URL}?user=${userId}`,
+        //type: InteractionResponseType.CHANNEL_MESSAGE_WITH_SOURCE,
+        //data: {
+         // content: `${process.env.VERIFY_BASE_URL}?user=${userId}`,
+        //},
       });
     }
   }
